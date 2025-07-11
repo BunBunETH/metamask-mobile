@@ -29,6 +29,7 @@ import io.metamask.nativeModules.PreventScreenshotPackage
 import io.metamask.nativeModules.RCTMinimizerPackage
 import io.metamask.nativesdk.NativeSDKPackage
 import io.metamask.nativeModules.RNTar.RNTarPackage
+import com.intercom.reactnative.IntercomModule
 
 class MainApplication : Application(), ShareApplication, ReactApplication {
 
@@ -73,6 +74,9 @@ class MainApplication : Application(), ShareApplication, ReactApplication {
         
         // Initialize Branch
         RNBranchModule.getAutoInstance(this)
+
+        // Initialize Intercom
+        IntercomModule.initialize(this, /* native exopackage */ false, "KEY_HERE", "KEY_HERE")
 
         // Increase cursor window size
         try {
